@@ -2,8 +2,8 @@ Google Analytics介绍
 -----
 在了解gtm之前，需要先了解Google Analytics，简称为ga统计，ga统计主要解决这几个问题：
 
- * 想统计页面的访问ip、页面访问量、访问设备等
- * 想统计页面的上用户的操作，比如点击、提交表单等事件
+ * 集中统计页面的访问ip、页面访问量、访问设备等
+ * 集中统计页面的上用户的操作，比如点击、提交表单等事件
  * 其他运营需要的数据整合
 
 有关ga的更详细介绍可以参考[ga中文文档](https://developers.google.com/analytics/devguides/collection/analyticsjs/ "ga中文文档") 
@@ -45,7 +45,7 @@ Google Analytics介绍
     }
 ```
 这时在点击之后，ga就会向统计后台发送一个点击事件的请求。
-其他相关的ga用法就不举例了，_因为我们的重点是gtm_。
+其他相关的ga用法就不举例了，`因为我们的重点是gtm`。
 
 Google Tag Manager
 -----
