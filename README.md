@@ -145,10 +145,66 @@ gtm的使用主要由三部分组成：
 
 ![Alt text](/img/9.png)
 
+可以通过chrome浏览器的扩展程序Google Tag Assistant对ga安装和gtm安装进行监控。
+
 
 后续
 -----
 上面的过程完全可以由运营操作。前端只需要定义类名为btn的元素即可。
 
 除了gtm自带的监听，我们也可以通过自定义事件进行硬编码处理复杂逻辑。
+
+facebook在gtm上的集成 
+-
+首先复制由运营提供的facebook pixel参数，这些原本应该被放置在html的script标签中，我们把它集成到gtm中就不需要进行编码
+```javascript
+    <!-- Facebook Pixel Code -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      ....
+    <!-- End Facebook Pixel Code -->
+```
+然后在gtm中新建一个代码(英文翻译是tag)，命名为FB - Base Pixel。设置类型为`Custom HTML`，并把代码粘贴上去。
+![Alt text](/img/10.png)
+
+然后点击高级设置中的`每次网页加载触发一次`(英文为Once per page)，设置触发条件为`所有页面`
+![Alt text](/img/11.png)
+
+接下按下保存即可，这时每个引入gtm的页面都会触发facebook的pixel脚本加载。
+
+使用gtm预览之后，可以添加chrome浏览器的插件扩展程序Facebook Pixel Helper对facebook统计脚本进行监控。
+
+facebook事件统计
+-
+还是以下载事件的统计为例，运营发给我四个统计代码，用来区分4个下载按钮(这样区分按钮可能值得讨论)。事件代码如下：
+```javascript
+    1）<script>
+      fbq('track', 'Purchase');
+    </script>
+
+    2）<script>
+      fbq('track', 'Lead');
+    </script>
+
+    3）<script>
+      fbq('track', 'CompleteRegistration');
+    </script>
+
+    4）<script>
+      fbq('track', 'AddPaymentInfo');
+    </script>
+```
+这里的Purchase，Lead，CompleteRegistration都是facebook统计的不同事件，可以参考链接：https://www.facebook.com/business/help/402791146561655
+
+接下来我们为facebook统计添加事件统计。我们新建一个代码，用来统计第一个按钮，可以命名为FB-下载按钮1，并将运营发过来的统计代码粘贴上去。
+![Alt text](/img/12.png)
+这里我们还是使用gtm内置的点击事件，新建一个触发器，设置如下：
+![Alt text](/img/13.png)
+再将刚才代码的触发器设置为这个触发器，这时html中类名为download1的链接被点击时候将触发相应的代码。
+保存之后，使用预览就可以看到事件统计了。其他按钮和这个操作相似，通过建立触发器和相应的facebook代码来完成统计。
+
 
