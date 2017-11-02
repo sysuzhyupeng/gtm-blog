@@ -169,9 +169,11 @@ facebook在gtm上的集成
     <!-- End Facebook Pixel Code -->
 ```
 然后在gtm中新建一个代码(英文翻译是tag)，命名为FB - Base Pixel。设置类型为`Custom HTML`，并把代码粘贴上去。
+
 ![Alt text](/img/10.png)
 
 然后点击高级设置中的`每次网页加载触发一次`(英文为Once per page)，设置触发条件为`所有页面`
+
 ![Alt text](/img/11.png)
 
 接下按下保存即可，这时每个引入gtm的页面都会触发facebook的pixel脚本加载。
@@ -201,10 +203,15 @@ facebook事件统计
 这里的Purchase，Lead，CompleteRegistration都是facebook统计的不同事件，可以参考链接：https://www.facebook.com/business/help/402791146561655
 
 接下来我们为facebook统计添加事件统计。我们新建一个代码，用来统计第一个按钮，可以命名为FB-下载按钮1，并将运营发过来的统计代码粘贴上去。
+
 ![Alt text](/img/12.png)
+
 这里我们还是使用gtm内置的点击事件，新建一个触发器，设置如下：
+
 ![Alt text](/img/13.png)
+
 再将刚才代码的触发器设置为这个触发器，这时html中类名为download1的链接被点击时候将触发相应的代码。
+
 保存之后，使用预览就可以看到事件统计了。其他按钮和这个操作相似，通过建立触发器和相应的facebook代码来完成统计。
 
 
