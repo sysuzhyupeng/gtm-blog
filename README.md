@@ -3,7 +3,7 @@ Google Analytics介绍
 在了解gtm之前，需要先了解Google Analytics，简称为ga统计，ga统计主要解决这几个问题：
 
  * 集中统计页面的访问ip、页面访问量、访问设备等
- * 集中统计页面的上用户的操作，比如点击、提交表单等事件
+ * 集中统计页面上用户的操作，比如点击、提交表单等事件
  * 其他运营需要的数据整合
 
 有关ga的更详细介绍可以参考[ga中文文档](https://developers.google.com/analytics/devguides/collection/analyticsjs/ "ga中文文档") 
@@ -29,7 +29,7 @@ Google Analytics介绍
  * 创建了一个 < script> 元素，并开始从 https://www.google-analytics.com/analytics.js 异步下载 analytics.js JavaScript 库。
  * 初始化了一个全局函数 ga（也称为 ga() 命令队列），可以通过该函数来安排要在 analytics.js 库加载完毕可供使用时执行的命令。
  * 在 ga() 命令队列中添加一条命令，为通过 ‘UA-XXXXX-Y’ 参数指定的媒体资源创建一个新的跟踪器对象。
- * 在 ga() 命令队列中添加另一条命令，为当前页面向 Google Analytics（分析）发送网页浏览数据。
+ * 在 ga() 命令队列中添加另一条命令，为当前页面向 Google Analytics服务器发送网页浏览数据。
 
 简单来说创建了一个ga的方法让我们可以直接调用。
 在加载脚本之后，可以通过这样的编码来创建事件统计：
