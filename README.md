@@ -59,6 +59,7 @@ Google Tag Manager
 
  * 运营人员可以维护统计
  * 修改统计直接修改后台，不用处理前端代码
+ * gtm可以集成多个统计，比如ga统计和facebook统计
 
 gtm脚本
 -----
